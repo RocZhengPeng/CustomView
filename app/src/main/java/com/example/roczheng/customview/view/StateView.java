@@ -43,7 +43,7 @@ public class StateView extends View {
 
     {
         paint.setTextSize(dpToPixel(40));
-        paint.setTextAlign(Paint.Align.CENTER);
+        //paint.setTextAlign(Paint.Align.CENTER);//设置文本居中对齐
     }
 
     @Override
@@ -52,6 +52,9 @@ public class StateView extends View {
 
     }
 
+    /**
+     * 为了使用动画来控制进度
+     */
     public int getProgress() {
         return progress;
     }
@@ -61,6 +64,11 @@ public class StateView extends View {
         invalidate();
     }
 
+    /**
+     * 为了使用动画来控制进度
+     */
+
+
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -69,42 +77,64 @@ public class StateView extends View {
         float centerY = getHeight() / 2;
 
         if (progress > 360) {
+            //画一个红色的圆在底部
             paint.setColor(Color.parseColor("#E91E63"));
             paint.setStyle(Paint.Style.FILL);
             paint.setStrokeCap(Paint.Cap.ROUND);
             canvas.drawCircle(centerX, centerY, radius, paint);
 
+            //画一个黑色的圆逐渐缩小
             paint.setColor(Color.parseColor("#000000"));
             paint.setStyle(Paint.Style.FILL);
             paint.setStrokeCap(Paint.Cap.ROUND);
             float reduce = dpToPixel(progress - 360);
             canvas.drawCircle(centerX, centerY, radius - reduce, paint);
 
-            if (progress == 440) {
-                Path path = new Path();
+            if (progress == 440) {//画一个√
+              /*  Path path = new Path();
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setColor(Color.WHITE);
-                paint.setPathEffect(new CornerPathEffect(5));
-                path.moveTo(centerX - dpToPixel(20), centerY - dpToPixel(10));
-                path.lineTo(centerX - dpToPixel(10), centerY + dpToPixel(10)); // 由当前位置 (0, 0) 向 (100, 100) 画一条直线
-                path.rLineTo(dpToPixel(40), -dpToPixel(40));
-                canvas.drawPath(path, paint);
+                paint.setPathEffect(new CornerPathEffect(5));//画线的路径效果，CornerPathEffect可以将路径的转角变得圆滑
+                path.moveTo(centerX - dpToPixel(45), centerY - dpToPixel(0));
+                path.lineTo(centerX - dpToPixel(20), centerY + dpToPixel(30)); // 由当前位置 (0, 0) 向 (100, 100) 画一条直线
+                path.rLineTo(dpToPixel(60), -dpToPixel(50));
+                canvas.drawPath(path, paint);*/
+                //画×
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setColor(Color.WHITE);
+                paint.setPathEffect(new CornerPathEffect(5));//画线的路径效果，CornerPathEffect可以将路径的转角变得圆滑
+              /*  canvas.drawLine(centerX - dpToPixel(30), centerY - dpToPixel(30), centerX + dpToPixel(30), centerY + dpToPixel(30), paint);
+                canvas.drawLine(centerX + dpToPixel(30), centerY - dpToPixel(30), centerX - dpToPixel(30), centerY + dpToPixel(30), paint);*/
+
+                //画！
+                canvas.drawLine(centerX, centerY - dpToPixel(30), centerX, centerY + dpToPixel(30), paint);
+
+                //画点
+                paint.setStrokeCap(Paint.Cap.ROUND);
+                canvas.drawPoint(centerX, centerY + dpToPixel(50), paint);
+
             }
 
-        } else {
+        } else {//360度以下
             paint.setColor(Color.parseColor("#E91E63"));
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeCap(Paint.Cap.ROUND);
+            paint.setStyle(Paint.Style.STROKE);//空心
+            paint.setStrokeCap(Paint.Cap.ROUND);//设置画笔笔刷类型 影响画笔始末端
             paint.setStrokeWidth(dpToPixel(15));
 
-
             arcRectF.set(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
-            canvas.drawArc(arcRectF, 0, progress, false, paint);
+            canvas.drawArc(arcRectF, 0, progress, false, paint);//画圆弧
 
-
+            //绘制需要显示的文字
             paint.setColor(Color.WHITE);
             paint.setStyle(Paint.Style.FILL);
-            canvas.drawText((int) progress + "%", centerX, centerY - (paint.ascent() + paint.descent()) / 2, paint);
+            // 计算Baseline绘制的起点X轴坐标 ，计算方式：画布宽度的一半 - 文字宽度的一半
+            String text = (int) progress + "%";
+            int baseX = (int) (canvas.getWidth() / 2 - paint.measureText(text) / 2);
+            //int baseX = (int) (centerX);
+// 计算Baseline绘制的Y坐标 ，计算方式：画布高度的一半 - 文字总高度的一半
+            int baseY = (int) (centerY - ((paint.descent() + paint.ascent()) / 2));
+
+            canvas.drawText(text, baseX, baseY, paint);
         }
 
     }
@@ -113,4 +143,5 @@ public class StateView extends View {
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         return dp * metrics.density;
     }
+    //Canvas.DrawPaint(Paint p) – 用指定的Paint对象填充整个位图画布
 }
