@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.roczheng.customview.MainActivity">
+
+    <Button
+        android:id="@+id/btn_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始"/>
+
+   <!-- <com.example.roczheng.customview.view.BaseView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
+    
+     <com.example.roczheng.customview.view.StateView
+         android:id="@+id/state"
+         android:layout_width="200dp"
+         android:layout_height="200dp"
+         android:background="#000000"/>
+
+    <!--<com.example.roczheng.customview.view.HeartView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
+
+
+</LinearLayout>
