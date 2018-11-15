@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomView.iml" filepath="$PROJECT_DIR$/CustomView.iml" />
-      <module fileurl="file://F:\AndroidProjectTow\CustomView\CustomView.iml" filepath="F:\AndroidProjectTow\CustomView\CustomView.iml" />
+      <module fileurl="file://D:\xiaoge-huanjv\CustomView\CustomView.iml" filepath="D:\xiaoge-huanjv\CustomView\CustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\AndroidProjectTow\CustomView\app\app.iml" filepath="F:\AndroidProjectTow\CustomView\app\app.iml" />
+      <module fileurl="file://D:\xiaoge-huanjv\CustomView\app\app.iml" filepath="D:\xiaoge-huanjv\CustomView\app\app.iml" />
     </modules>
   </component>
 </project>

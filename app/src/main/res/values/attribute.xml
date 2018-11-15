@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StateView">
+        <!--圆形背景颜色-->
+        <attr name="circular_color" format="color" />
+        <!--圆形中图案颜色-->
+        <attr name="image_color" format="color" />
+        <!--进度字体颜色-->
+        <attr name="text_color" format="color" />
+        <!--圆的半径-->
+        <attr name="radius" format="dimension" />
+        <!--动画执行的速度-->
+        <attr name="rate">
+            <enum name="slow" value="0" />
+            <enum name="normal" value="1" />
+            <enum name="fast" value="2" />
+        </attr>
+        <!--状态-->
+        <attr name="state">
+            <enum name="complete" value="0" />
+            <enum name="failure" value="1" />
+            <enum name="warning" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

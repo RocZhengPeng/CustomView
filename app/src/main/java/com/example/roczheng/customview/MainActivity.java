@@ -11,22 +11,20 @@ import com.example.roczheng.customview.view.StateView;
 
 public class MainActivity extends AppCompatActivity {
 
-    StateView view;
+    StateView stateView;
     Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        view = (StateView) findViewById(R.id.state);
-        button= (Button) findViewById(R.id.btn_one);
-        final ObjectAnimator animator = ObjectAnimator.ofInt(view, "progress", 0, 440);
-        animator.setDuration(1000);
-        animator.setInterpolator(new FastOutSlowInInterpolator());
+        stateView = (StateView) findViewById(R.id.state);
+        button = (Button) findViewById(R.id.btn_one);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animator.start();
+                stateView.stareAnimal();
             }
         });
     }

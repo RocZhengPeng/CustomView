@@ -22,17 +22,20 @@
          android:id="@+id/state"
          android:layout_width="200dp"
          android:layout_height="200dp"
-         android:background="#000000"/>
+         app:circular_color="@color/colorAccent"
+         app:image_color="#ffffff"
+         app:text_color="@color/colorPrimary"
+         app:state="failure"/>
 
     <!--<com.example.roczheng.customview.view.HeartView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />-->
 
-    <com.example.roczheng.customview.view.MyTextView
+   <!-- <com.example.roczheng.customview.view.MyTextView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="10dp"
-        android:background="#000000"/>
+        android:background="#000000"/>-->
 
 
 </LinearLayout>
