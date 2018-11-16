@@ -9,12 +9,6 @@
         <attr name="text_color" format="color" />
         <!--圆的半径-->
         <attr name="radius" format="dimension" />
-        <!--动画执行的速度-->
-        <attr name="rate">
-            <enum name="slow" value="0" />
-            <enum name="normal" value="1" />
-            <enum name="fast" value="2" />
-        </attr>
         <!--状态-->
         <attr name="state">
             <enum name="complete" value="0" />

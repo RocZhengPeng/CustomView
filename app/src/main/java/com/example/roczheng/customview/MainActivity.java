@@ -12,18 +12,37 @@ import com.example.roczheng.customview.view.StateView;
 public class MainActivity extends AppCompatActivity {
 
     StateView stateView;
-    Button button;
+    Button buttonOne;
+    Button buttonTow;
+    Button buttonThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         stateView = (StateView) findViewById(R.id.state);
-        button = (Button) findViewById(R.id.btn_one);
+        buttonOne = (Button) findViewById(R.id.btn_one);
+        buttonTow = (Button) findViewById(R.id.btn_tow);
+        buttonThree = (Button) findViewById(R.id.btn_three);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stateView.setState(0);
+                stateView.stareAnimal();
+            }
+        });
+        buttonTow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stateView.setState(1);
+                stateView.stareAnimal();
+            }
+        });
+        buttonThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stateView.setState(2);
                 stateView.stareAnimal();
             }
         });

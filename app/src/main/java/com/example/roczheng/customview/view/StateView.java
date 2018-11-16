@@ -33,8 +33,6 @@ public class StateView extends View {
 
     private int mRadius;
 
-    private int mSpeed;
-
     private int mState;
 
     float radius;//圆的半径
@@ -58,7 +56,6 @@ public class StateView extends View {
         mImageColor = typedArray.getInteger(R.styleable.StateView_image_color, Color.WHITE);
         mTextColor = typedArray.getInteger(R.styleable.StateView_text_color, Color.WHITE);
         mRadius = typedArray.getInteger(R.styleable.StateView_radius, 80);
-        mSpeed = typedArray.getInteger(R.styleable.StateView_rate, 1);
         mState = typedArray.getInteger(R.styleable.StateView_state, 1);
         typedArray.recycle();//回收
         radius = dpToPixel(mRadius);
@@ -85,6 +82,10 @@ public class StateView extends View {
         animator.setDuration(1500);
         animator.setInterpolator(new FastOutSlowInInterpolator());
         animator.start();
+    }
+
+    public void setState(int state) {
+        this.mState = state;
     }
 
     /**
