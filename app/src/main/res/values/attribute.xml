@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StateView">
+        <!--圆形背景颜色-->
+        <attr name="circular_color" format="color" />
+        <!--圆形中图案颜色-->
+        <attr name="image_color" format="color" />
+        <!--进度字体颜色-->
+        <attr name="text_color" format="color" />
+        <!--圆的半径-->
+        <attr name="radius" format="dimension" />
+        <!--状态-->
+        <attr name="state">
+            <enum name="complete" value="0" />
+            <enum name="failure" value="1" />
+            <enum name="warning" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>
