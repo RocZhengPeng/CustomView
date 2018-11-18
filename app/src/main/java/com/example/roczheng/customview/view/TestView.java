@@ -27,6 +27,7 @@ public class TestView extends View {
         init();
     }
 
+    //在布局layout中使用（调用）,但是会有style
     public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="StateView">
+        <!--name属性名字
+        format 格式：string文字，color颜色，
+        dimension 宽高 字体大小 integer 数字
+        reference 资源（drawable）
+        -->
         <!--没有选中的基调颜色-->
         <attr name="un_check_base_color" format="color" />
         <!--选中后的基调颜色-->
